@@ -11,6 +11,14 @@ router.get("/", (req, res) => {
         })))
 })
 
+router.get("/:id", (req, res) => {
+    Vinyl.findById(req.params.id)
+        .then((vinyls => res.json({
+            status: 200,
+            vinyls: vinyls
+        })))
+})
+
 router.post('/', (req, res) => {
     const data = req.body
     console.log('req.body is ', data)

@@ -7,6 +7,8 @@ const vinylsController = require('./controllers/vinylsControllers')
 const PORT = process.env.PORT
 
 const app = express()
+app.use(express.urlencoded({extended:false}))
+app.use(express.json())
 app.use(logger('dev'));
 app.use(cors())
 

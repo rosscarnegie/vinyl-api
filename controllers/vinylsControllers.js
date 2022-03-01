@@ -13,6 +13,7 @@ router.get("/", (req, res) => {
 
 router.post('/', (req, res) => {
     const data = req.body
+    console.log('req.body is ', data)
     Vinyl.create(data)
         .then((vinyl) => res.json({
             status: 200,

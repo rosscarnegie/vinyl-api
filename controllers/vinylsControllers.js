@@ -1,10 +1,14 @@
-const { Router } = require('express')
-const express = require('express')
+const express = require("express");
 const Vinyl = require('./../models/Vinyl')
-const router = express.Router()
 
-router.get('/', (req, res) => {
-    res.send('hello, from vinyls')
+const router = express.Router();
+
+router.get("/", (req, res) => {
+    Vinyl.find()
+        .then((vinyls => res.json({
+            status: 200,
+            vinyls: vinyls
+        })))
 })
 
-module.exports = router
+module.exports = router;

@@ -13,11 +13,19 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
     Vinyl.findById(req.params.id)
-        .then((vinyls => res.json({
+        .then((vinyl => res.json({
             status: 200,
-            vinyls: vinyls
+            vinyl: vinyl
         })))
 })
+
+router.delete("/:id", (req, res) => {
+    Vinyl.findByIdAndDelete(req.params.id)
+        Vinyl.find({}).then((allVinyls) => {
+            res.json(allVinyls)
+        })
+})
+
 
 router.post('/', (req, res) => {
     const data = req.body
@@ -28,5 +36,7 @@ router.post('/', (req, res) => {
             vinyl: vinyl
         }))
 })
+
+
 
 module.exports = router;

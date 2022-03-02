@@ -3,21 +3,23 @@ const Vinyl = require('./../models/Vinyl')
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
+
+router.get("/seeAll", (req, res) => {
     Vinyl.find()
         .then((vinyls => res.json({
-            status: 200,
             vinyls: vinyls
         })))
 })
 
-router.get("/:id", (req, res) => {
+
+router.get("/id/:id", (req, res) => {
     Vinyl.findById(req.params.id)
         .then((vinyl => res.json({
             status: 200,
             vinyl: vinyl
         })))
 })
+
 
 router.delete("/:id", (req, res) => {
     Vinyl.findByIdAndDelete(req.params.id)

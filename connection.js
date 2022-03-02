@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 let mongoURI = "";
 if (process.env.NODE_ENV === "production") {
     mongoURI = process.env.DB_URL;
-  } else {
+  } 
+  else {
     mongoURI = "mongodb://127.0.0.1/vinyl-api";
   }
 
